@@ -21,11 +21,11 @@ export const commitlintPluginJira: CommitlintPluginJira = {
       .taskIdSeparator]: jiraTaskIdSeparatorRuleResolver,
     [commitlintJiraConstants.JIRA_RULES.taskIdCase]: jiraTaskIdCaseRuleResolver,
     [commitlintJiraConstants.JIRA_RULES
+      .taskIdProjectKey]: jiraTaskIdProjectKeyRuleResolver,
+    [commitlintJiraConstants.JIRA_RULES
       .commitStatusCase]: jiraCommitStatusCaseRuleResolver,
     [commitlintJiraConstants.JIRA_RULES
       .commitMessageSeparator]: jiraCommitMessageSeparatorRuleResolver,
-    [commitlintJiraConstants.JIRA_RULES
-      .taskIdProjectKey]: jiraTaskIdProjectKeyRuleResolver,
   },
 }
 
