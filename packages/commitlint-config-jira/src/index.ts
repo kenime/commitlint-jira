@@ -26,6 +26,7 @@ export const commitlintConfigJira: CommitlintConfigJira = {
       'always',
       commitlintJiraConstants.COMMIT_MESSAGE_SEPARATOR,
     ],
+    [commitlintJiraConstants.JIRA_RULES.taskIdProjectKey]: [2, 'always', false],
   },
 }
 
