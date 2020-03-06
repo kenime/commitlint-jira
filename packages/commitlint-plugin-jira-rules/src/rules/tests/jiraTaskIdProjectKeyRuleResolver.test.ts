@@ -34,6 +34,20 @@ describe('jiraTaskIdProjectKeyRuleResolver', () => {
       false,
     )
   })
+  it('should return an error response if project key is empty string', () => {
+    const parsed = {
+      raw: 'IB-21: my commit message',
+    }
+    expect(jiraTaskIdProjectKeyRuleResolver(parsed, '')[0]).toEqual(false)
+  })
+  it('should return a success response if project key is set to false', () => {
+    const parsed = {
+      raw: 'IB-21: my commit message',
+    }
+    expect(
+      jiraTaskIdProjectKeyRuleResolver(parsed, undefined, false)[0],
+    ).toEqual(true)
+  })
   it('should return a success response if task id include project key', () => {
     const parsed = {
       raw: 'PRJT-21: my commit message',

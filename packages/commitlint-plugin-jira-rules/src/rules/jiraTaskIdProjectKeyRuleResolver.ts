@@ -13,9 +13,16 @@ const jiraTaskIdProjectKeyRuleResolver: TRuleResolver = (
 
   let isRuleValid = false
   let nonValidTaskId = null
-  if (!value) {
-    return [false, 'project key should be provided']
+  if (value === false || value === 'false') {
+    // Value is set to false, i.e. disabled the rule
+    return [true]
   }
+
+  if (!value || value === true) {
+    // Value is falsey but not false (likely an empty project key) or set to true which is invalid
+    return [false, 'project key should be provided in configuration']
+  }
+
   if (typeof value === 'string' || typeof value === 'number') {
     nonValidTaskId = commitMessage.commitTaskIds.find(
       // Task ID should start with project key
@@ -34,7 +41,7 @@ const jiraTaskIdProjectKeyRuleResolver: TRuleResolver = (
 
   return [
     isRuleValid,
-    `${nonValidTaskId} taskId must include project key ${value}`,
+    `${nonValidTaskId} taskId must start with project key ${value}`,
   ]
 }
 
