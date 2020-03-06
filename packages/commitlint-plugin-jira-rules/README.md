@@ -107,7 +107,7 @@ git commit -m"IB-21: My commit message body"
 // Accept a string or an array of strings
 // For exmample ["PRJ1", "PRJ2"]
 // ❌ Bad commit messages
-git commit -m"IB/21: My commit message body"
+git commit -m"IB-21: My commit message body"
 // ✅ Good commit messages
 git commit -m"PRJ1-21, PRJ1-22: My commit message body"
 git commit -m"PRJ2-21: My commit message body"
